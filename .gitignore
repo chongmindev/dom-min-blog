@@ -1,0 +1,9 @@
+# raw source dump (HEIC originals, screenshots); the site uses the web copies in images/
+dom min blog/
+
+# local tool state
+.agents/
+.claude/
+skills-lock.json
+
+.DS_Store
