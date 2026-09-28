@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Fragment+Mono&family=Caveat:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet" />
 <script>try{var f=sessionStorage.getItem("flood");if(f){sessionStorage.removeItem("flood");document.documentElement.setAttribute("data-flood","");document.documentElement.style.setProperty("--flood",f);}}catch(e){}</script>
 <link rel="stylesheet" href="styles.css" />
 <link rel="icon" href="favicon.svg" />
@@ -51,8 +51,8 @@
   /* roles: one line in the mono label style, sized to ~90% of the column (the string is ~33.6em wide in caps) */
   .home-left .cls{font-family:var(--f-mono);font-size:clamp(9px,2.65cqi,12px);line-height:1.4;font-weight:500;text-transform:uppercase;letter-spacing:0;color:var(--coffee-mid);margin-top:12px;white-space:nowrap;}
   @media (max-width:1340px){.home-left .cls{white-space:normal;text-wrap:balance;}}
-  /* tagline as a handwritten quote, all lowercase */
-  .home-left .line{font-family:"Caveat",cursive;font-size:11.2cqi;line-height:1.05;font-weight:400;letter-spacing:0;padding-bottom:2px;text-transform:lowercase;color:var(--coffee-mid);margin:24px 0 0;white-space:nowrap;}
+  /* tagline as a quote: site font at its lightest, all lowercase */
+  .home-left .line{font-family:var(--f-display);font-size:8.8cqi;line-height:1.1;font-weight:400;letter-spacing:-.035em;padding-bottom:2px;text-transform:lowercase;color:var(--coffee-mid);margin:24px 0 0;white-space:nowrap;}
   /* sized in container units like the name, so "come take a sip of what" spans exactly as wide as "Dom" */
   .home-left .line b{font-weight:400;color:var(--brick);}
   .home-left .cls span{white-space:nowrap;}
@@ -175,7 +175,7 @@
         <div class="cover-text">
           <h1 class="cover-name"><span class="l1">Dom</span> <span class="l2">Min</span></h1>
           <div class="cls"><span>Founder,</span> <span>Leader,</span> <span>Researcher,</span> <span>Activist,</span> <span>Coffee Aficionado</span></div>
-          <p class="line">Come take a sip of what<br>I’ve been <b>brewing</b></p>
+          <p class="line">Come take a sip of what<br>I’ve been <b>brewing</b>.</p>
         </div>
       </div>
       <nav class="plist">
