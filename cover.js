@@ -8,7 +8,7 @@
   var imgs = Array.prototype.slice.call(frame.querySelectorAll('.cover-img'));
   if (!imgs.length) return;
 
-  var HOLD = 3500, SLIDE = 900;
+  var HOLD = 2500, SLIDE = 900;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var i = 0, timer = null;
 
