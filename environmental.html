@@ -65,9 +65,9 @@
 
   <!-- Research -->
   <section class="section">
-    <div class="section-head">
+    <div class="section-head" data-kind="Research">
       <h2>Marine-derived biopolymers for single-use cups</h2>
-      <span class="role">Suwon University · 2025</span>
+      <span class="role">Research paper · Suwon University · 2025</span>
     </div>
     <div class="badges">
       <span class="badge">KSEF Silver Medal</span>
@@ -75,23 +75,29 @@
     </div>
     <p>[Add 1-2 sentences about the research.]</p>
 
-    <!-- the PDF viewer only loads on click: browsers focus it on load and jump the page down to it -->
-    <div class="embed pdf pdf-poster" style="margin-bottom:14px;" data-pdf="Min_IYRCJournal_2025.pdf">
-      <img src="images/research/paper-p1.jpg" alt="First page of the research paper">
-      <button type="button" class="btn">Read the paper here</button>
+    <div class="research-grid">
+      <!-- pages are pre-rendered images, not a PDF viewer: embedded viewers grab focus and jump the page -->
+      <div class="paper">
+        <div class="paper-pages" tabindex="0" role="region" aria-label="Research paper, 5 pages">
+          <img src="images/research/paper-p1.jpg" alt="Research paper, page 1 of 5">
+          <img src="images/research/paper-p2.jpg" alt="Research paper, page 2 of 5" loading="lazy">
+          <img src="images/research/paper-p3.jpg" alt="Research paper, page 3 of 5" loading="lazy">
+          <img src="images/research/paper-p4.jpg" alt="Research paper, page 4 of 5" loading="lazy">
+          <img src="images/research/paper-p5.jpg" alt="Research paper, page 5 of 5" loading="lazy">
+        </div>
+        <p class="embed-note">IYRC Journal · 5 pages · scroll inside to read</p>
+      </div>
+      <div class="research-side">
+        <div class="gallery research-photos">
+          <figure class="ph sq"><span class="cap">Sample preparation</span></figure>
+          <figure class="ph sq olive"><span class="cap">Biopolymer film</span></figure>
+          <figure class="ph sq"><span class="cap">Degradation test</span></figure>
+          <figure class="ph sq sand"><span class="cap">Measurement setup</span></figure>
+        </div>
+        <p class="embed-note">Lab photos (add a caption to each).</p>
+        <a class="notes-link" href="research-notes.pdf" target="_blank" rel="noopener">Research notes <span aria-hidden="true">→</span></a>
+      </div>
     </div>
-    <div class="btn-row" style="margin-bottom:22px;">
-      <a class="btn" href="Min_IYRCJournal_2025.pdf" target="_blank" rel="noopener">View the paper (PDF)</a>
-      <a class="btn ghost" href="research-notes.pdf" target="_blank" rel="noopener">Research notes</a>
-    </div>
-
-    <div class="gallery">
-      <figure class="ph sq"><span class="cap">Sample preparation</span></figure>
-      <figure class="ph sq olive"><span class="cap">Biopolymer film</span></figure>
-      <figure class="ph sq"><span class="cap">Degradation test</span></figure>
-      <figure class="ph sq sand"><span class="cap">Measurement setup</span></figure>
-    </div>
-    <p class="embed-note">Lab photos (add a caption to each).</p>
   </section>
 </main>
 
@@ -101,16 +107,5 @@
 </footer>
 <script src="reveal.js" defer></script>
 <script src="nav.js" defer></script>
-<script>
-  document.querySelectorAll('.pdf-poster').forEach(function (box) {
-    box.querySelector('button').addEventListener('click', function () {
-      var frame = document.createElement('iframe');
-      frame.src = box.dataset.pdf;
-      frame.title = 'Research paper';
-      box.classList.remove('pdf-poster');
-      box.replaceChildren(frame);
-    });
-  });
-</script>
 </body>
 </html>
