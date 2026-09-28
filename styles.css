@@ -23,7 +23,7 @@
   --accent:#A3192B;
   --env:#1F7A4D;           /* environmental: emerald */
   --social:#C2185B;        /* social: magenta */
-  --school:#B84A17;        /* school: spirit orange */
+  --school:#B35700;        /* school: official #FF7D00, darkened to pass text contrast */
   --brew:#6F4E37;          /* brew logs: coffee brown */
 
   --f-display:"Schibsted Grotesk",system-ui,sans-serif;
