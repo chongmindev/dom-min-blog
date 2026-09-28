@@ -75,10 +75,10 @@
     </div>
     <p>[Add 1-2 sentences about the research.]</p>
 
-    <div class="embed pdf" style="margin-bottom:14px;">
-      <object data="research-paper.pdf" type="application/pdf" width="100%">
-        <div class="ph wide" style="aspect-ratio:16/8;"><span class="cap">Your browser can’t show the PDF inline. Open it with the button below.</span></div>
-      </object>
+    <!-- the PDF viewer only loads on click: browsers focus it on load and jump the page down to it -->
+    <div class="embed pdf pdf-poster" style="margin-bottom:14px;" data-pdf="research-paper.pdf">
+      <img src="images/research/paper-p1.jpg" alt="First page of the research paper">
+      <button type="button" class="btn">Read the paper here</button>
     </div>
     <div class="btn-row" style="margin-bottom:22px;">
       <a class="btn" href="research-paper.pdf" target="_blank" rel="noopener">View the paper (PDF)</a>
@@ -101,5 +101,16 @@
 </footer>
 <script src="reveal.js" defer></script>
 <script src="nav.js" defer></script>
+<script>
+  document.querySelectorAll('.pdf-poster').forEach(function (box) {
+    box.querySelector('button').addEventListener('click', function () {
+      var frame = document.createElement('iframe');
+      frame.src = box.dataset.pdf;
+      frame.title = 'Research paper';
+      box.classList.remove('pdf-poster');
+      box.replaceChildren(frame);
+    });
+  });
+</script>
 </body>
 </html>
