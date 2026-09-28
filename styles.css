@@ -157,7 +157,7 @@ main{counter-reset:sec;}
   font-family:var(--f-mono);font-size:14px;line-height:20px;font-weight:600;color:var(--accent);letter-spacing:.04em;}
 .section-head h2{font-family:var(--f-display);font-weight:700;font-size:clamp(36px,5.2vw,72px);line-height:1;letter-spacing:-.05em;margin:0;}
 .section-head .role{font-family:var(--f-mono);font-size:12px;line-height:16px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--coffee-mid);}
-.section p{margin:0 0 16px;color:var(--ink-body);max-width:65ch;font-size:18px;line-height:28px;}
+.section p{margin:0 0 16px;color:var(--ink-body);font-size:18px;line-height:28px;}
 .muted{color:var(--coffee-mid);}
 
 /* ---------------- key numbers ---------------- */
@@ -189,20 +189,18 @@ main{counter-reset:sec;}
 /* ---------------- galleries + photo placeholders ---------------- */
 .gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));}
 .gallery.lg{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));}
-/* editorial gallery: a wide feature image leads, the rest fall into a natural grid */
-.gallery.editorial{grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-flow:dense;}
-.gallery.editorial > *{grid-column:span 3;}
-.gallery.editorial > .ph:first-child,
-.gallery.editorial > figure:first-child{grid-column:1 / -1;aspect-ratio:2.4/1;}
-.gallery.editorial > *:nth-child(3n+2){grid-column:span 2;}
-.gallery.editorial > *:nth-child(3n+3){grid-column:span 4;}
+/* editorial gallery: a wide lead photo, then rows of one wide + one narrow tile that
+   alternate sides. Every row shares one height, so tiles never leave gaps beside them. */
+.gallery.editorial{grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:clamp(200px,24vw,380px);}
+.gallery.editorial > *{aspect-ratio:auto !important;height:100%;}
+.gallery.editorial > :first-child{grid-column:1 / -1;grid-row:span 2;}
+.gallery.editorial > :nth-child(4n+2),.gallery.editorial > :nth-child(4n+5){grid-column:span 4;}
+.gallery.editorial > :nth-child(4n+3),.gallery.editorial > :nth-child(4n+4){grid-column:span 2;}
+.gallery.editorial > :last-child:nth-child(even){grid-column:1 / -1;}
 @media (max-width:640px){
-  .gallery.editorial{grid-template-columns:repeat(2,minmax(0,1fr));}
-  .gallery.editorial > *{grid-column:span 1;}
-  .gallery.editorial > .ph:first-child,
-  .gallery.editorial > figure:first-child{grid-column:1 / -1;aspect-ratio:16/9;}
-  .gallery.editorial > *:nth-child(3n+2),
-  .gallery.editorial > *:nth-child(3n+3){grid-column:span 1;}
+  .gallery.editorial{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(140px,40vw,240px);}
+  .gallery.editorial > *{grid-column:span 1 !important;}
+  .gallery.editorial > :first-child,.gallery.editorial > :last-child:nth-child(even){grid-column:1 / -1 !important;}
 }
 figure{margin:0;}
 /* low-resolution photos (the student council originals are ~300-750px): never wider than a
