@@ -14,7 +14,7 @@ then visit http://localhost:8000.
 |---|---|
 | Home | `index.html` |
 | Environmental | `environmental.html` |
-| Social | `social.html` (+ `map.html`, `consulting.html`) |
+| Social | `social.html` |
 | School | `school.html` |
 | Brew logs | `brew-logs.html` |
 | Contact | `contact.html` |

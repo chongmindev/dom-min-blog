@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Fragment+Mono&family=Caveat:wght@400;500&display=swap" rel="stylesheet" />
 <script>try{var f=sessionStorage.getItem("flood");if(f){sessionStorage.removeItem("flood");document.documentElement.setAttribute("data-flood","");document.documentElement.style.setProperty("--flood",f);}}catch(e){}</script>
 <link rel="stylesheet" href="styles.css" />
 <link rel="icon" href="favicon.svg" />
@@ -24,8 +24,9 @@
   }
   .home-left{min-width:0;display:flex;flex-direction:column;justify-content:flex-start;}
   /* cover: tall portrait frame with the name stacked beside it */
-  .cover{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;align-items:end;}
-  .cover-frame{position:relative;height:clamp(240px,calc(100dvh - 470px),480px);aspect-ratio:4/5;border:3px solid var(--coffee);border-radius:var(--radius);overflow:hidden;background:var(--cream-deep);}
+  /* the photo stretches to exactly the height of the text beside it */
+  .cover{display:grid;grid-template-columns:minmax(0,9fr) minmax(0,11fr);gap:24px;align-items:stretch;}
+  .cover-frame{position:relative;min-height:0;border:3px solid var(--coffee);border-radius:var(--radius);overflow:hidden;background:var(--cream-deep);}
   .cover-frame .cover-ph{position:absolute;inset:0;border:0;border-radius:0;aspect-ratio:auto;}
   .cover-frame.has-photos .cover-ph{display:none;}
   /* slides wait off to the right, the current one sits at 0, the outgoing one leaves left */
@@ -41,20 +42,26 @@
   .cover-dots button[aria-current="true"]::before{background:rgba(250,249,246,.95);transform:scale(1.35);}
   .cover-dots button:focus-visible{outline:2px solid var(--cream);outline-offset:0;}
   .cover-name{font-family:var(--f-display);font-weight:700;font-size:clamp(58px,42.3cqi,144px);line-height:.86;letter-spacing:-.05em;}
-  .home-left h1{margin:0;}
+  .home-left h1{margin:-.075em 0 0;} /* cancels the font's built-in space above capitals, so the D's top meets the photo's top */
   /* Dom over Min, sized to fill the column beside the photo */
   .cover-text{container-type:inline-size;}
   .cover-name span{display:block;}
   .cover-name .l2{color:var(--brick);}
   .home-left h1 i{color:var(--brick);font-style:normal;}
-  .home-left .cls{font-family:var(--f-mono);font-size:12px;line-height:16px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--coffee);margin-top:16px;}
-  .home-left .line{font-size:20px;line-height:28px;color:var(--coffee-mid);margin:12px 0 0;max-width:44ch;}
+  /* roles: one line in the mono label style, sized to ~90% of the column (the string is ~33.6em wide in caps) */
+  .home-left .cls{font-family:var(--f-mono);font-size:clamp(9px,2.65cqi,12px);line-height:1.4;font-weight:500;text-transform:uppercase;letter-spacing:0;color:var(--coffee-mid);margin-top:12px;white-space:nowrap;}
+  @media (max-width:1340px){.home-left .cls{white-space:normal;text-wrap:balance;}}
+  /* tagline as a handwritten quote, all lowercase */
+  .home-left .line{font-family:"Caveat",cursive;font-size:11.2cqi;line-height:1.05;font-weight:400;letter-spacing:0;padding-bottom:2px;text-transform:lowercase;color:var(--coffee-mid);margin:24px 0 0;white-space:nowrap;}
+  /* sized in container units like the name, so "come take a sip of what" spans exactly as wide as "Dom" */
+  .home-left .line b{font-weight:400;color:var(--brick);}
+  .home-left .cls span{white-space:nowrap;}
   .plist{display:flex;flex-direction:column;margin:24px -12px 0;border-top:3px solid var(--coffee);counter-reset:p;}
   .plist a{counter-increment:p;display:flex;align-items:center;gap:16px;padding:8px 12px;border-bottom:1px solid var(--coffee);text-decoration:none;color:var(--coffee);transition:background .3s var(--ease),color .3s var(--ease);}
-  .plist a::before{content:counter(p,decimal-leading-zero);flex:none;width:24px;font-family:var(--f-mono);font-size:14px;line-height:20px;font-weight:600;color:var(--accent);transition:color .3s var(--ease);}
+  .plist a::before{content:counter(p,decimal-leading-zero);flex:none;width:24px;font-family:var(--f-mono);font-size:14px;line-height:20px;font-weight:600;color:var(--accent-ink,var(--accent));transition:color .3s var(--ease);}
   .plist a.env{--accent:var(--env);}
   .plist a.social{--accent:var(--social);}
-  .plist a.school{--accent:var(--school);}
+  .plist a.school{--accent:var(--school);--accent-ink:var(--school-ink);}
   .plist a.brew{--accent:var(--brew);}
   .plist a:hover{background:var(--accent);color:var(--cream);}
   .plist a:hover::before{color:var(--cream);}
@@ -95,14 +102,14 @@
   .spread{--accent:var(--brick);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:center;padding:48px 0;border-top:3px solid var(--coffee);}
   .spread[data-pillar="env"]{--accent:var(--env);}
   .spread[data-pillar="social"]{--accent:var(--social);}
-  .spread[data-pillar="school"]{--accent:var(--school);}
+  .spread[data-pillar="school"]{--accent:var(--school);--accent-ink:var(--school-ink);}
   .spread[data-pillar="brew"]{--accent:var(--brew);}
   .spread:nth-child(even) .spread-fig{order:2;}
   .spread-fig{aspect-ratio:4/3;background:color-mix(in srgb,var(--accent) 14%,var(--cream));border-color:color-mix(in srgb,var(--accent) 45%,var(--cream));}
   .spread-fig:has(img){border:3px solid var(--coffee);box-shadow:8px 8px 0 var(--accent);}
   .spread-fig.lowres{aspect-ratio:auto;justify-self:start;}
   .peek-card .pf img.lowres{inset:0;margin:auto;width:auto;max-width:33vw;height:100%;object-fit:contain;}
-  .spread-kick{font-family:var(--f-mono);font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 16px;}
+  .spread-kick{font-family:var(--f-mono);font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink,var(--accent));margin:0 0 16px;}
   .spread h2{font-size:clamp(36px,4.6vw,72px);line-height:1;letter-spacing:-.05em;margin:0 0 16px;}
   .spread-line{font-size:20px;line-height:28px;color:var(--coffee-mid);margin:0 0 24px;max-width:40ch;}
   .spread-stats{display:flex;flex-wrap:wrap;gap:32px;border-top:1px solid var(--coffee);padding-top:16px;margin-bottom:24px;}
@@ -127,7 +134,7 @@
     .spread{grid-template-columns:1fr;gap:24px;padding:32px 0;}
     .spread:nth-child(even) .spread-fig{order:0;}
     .plist a{padding:12px 0;}
-    .cover-frame{height:auto;width:100%;}
+    .cover-frame{height:auto;width:100%;aspect-ratio:4/5;}
     .home-map{height:52vh;}
     .plist .nm{white-space:normal;font-size:20px;line-height:28px;}
   }
@@ -162,13 +169,13 @@
           <img class="cover-img" data-src="images/council/05.jpg" alt="Student council snack event">
           <img class="cover-img" data-src="images/awake/10.jpg" alt="Iced drink at Cafe Awake">
           <img class="cover-img" data-src="images/council/13.jpg" alt="Students at a council gathering">
-          <img class="cover-img" data-src="images/samjung/06.jpg" alt="Behind the bar at Samjung">
+          <img class="cover-img" data-src="images/samjung/06.jpg" alt="In the Samjung flavor lab">
           <div class="cover-dots" hidden></div>
         </div>
         <div class="cover-text">
           <h1 class="cover-name"><span class="l1">Dom</span> <span class="l2">Min</span></h1>
-          <div class="cls">Class of 2027</div>
-          <p class="line">I wanna spread my seed.</p>
+          <div class="cls"><span>Founder,</span> <span>Leader,</span> <span>Researcher,</span> <span>Activist,</span> <span>Coffee Aficionado</span></div>
+          <p class="line">Come take a sip of what<br>I’ve been <b>brewing</b></p>
         </div>
       </div>
       <nav class="plist">
@@ -189,7 +196,7 @@
         </a>
         <a class="brew" href="brew-logs.html">
           <svg class="mk" viewBox="0 0 20 26" aria-hidden="true"><ellipse class="b" cx="10" cy="13" rx="8" ry="12"/><path class="c" d="M6.4 3.6 C 11 9, 9 17, 13.6 22.4" fill="none" stroke-linecap="round"/></svg>
-          <span class="txt"><span class="nm">Brew logs &amp; work experience</span><span class="sub">Brew log and cafe jobs</span></span>
+          <span class="txt"><span class="nm">Brew logs &amp; work experience</span><span class="sub">Brew log, barista work, and a flavor lab</span></span>
           <span class="go" aria-hidden="true">→</span>
         </a>
       </nav>
@@ -222,7 +229,10 @@
         <p class="spread-kick">02 / Social</p>
         <h2>Social sustainability</h2>
         <p class="spread-line">Independent cafes vs. franchise expansion in Seoul.</p>
-        <ul class="spread-list"><li>Coffee map</li><li>Cafe reviews</li><li>Consulting app</li></ul>
+        <div class="spread-stats">
+          <div><span class="n">50+</span><span class="l">cafes reviewed</span></div>
+          <div><span class="n">$2,000+</span><span class="l">raised for cafes</span></div>
+        </div>
         <a class="spread-go" href="social.html">See social work <span aria-hidden="true">→</span></a>
       </div>
     </article>
@@ -234,6 +244,7 @@
         <p class="spread-line">TIGERCLUBS.ORG and student council.</p>
         <div class="spread-stats">
           <div><span class="n">300+</span><span class="l">active users</span></div>
+          <div><span class="n">20+</span><span class="l">events a year</span></div>
         </div>
         <a class="spread-go" href="school.html">See school work <span aria-hidden="true">→</span></a>
       </div>
@@ -243,10 +254,10 @@
       <div class="spread-txt">
         <p class="spread-kick">04 / Brew logs</p>
         <h2>Brew logs &amp; work experience</h2>
-        <p class="spread-line">Every pour logged, plus barista work at Cafe Awake and Samjung.</p>
+        <p class="spread-line">Every pour logged, barista work at Cafe Awake, and flavor lab work at Samjung.</p>
         <div class="spread-stats">
-          <div><span class="n">95</span><span class="l">brews logged</span></div>
-          <div><span class="n">8</span><span class="l">origins</span></div>
+          <div><span class="n">250+</span><span class="l">cups brewed</span></div>
+          <div><span class="n">300+</span><span class="l">hours of study</span></div>
         </div>
         <a class="spread-go" href="brew-logs.html">See brew logs <span aria-hidden="true">→</span></a>
       </div>
