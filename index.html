@@ -100,6 +100,8 @@
   .spread:nth-child(even) .spread-fig{order:2;}
   .spread-fig{aspect-ratio:4/3;background:color-mix(in srgb,var(--accent) 14%,var(--cream));border-color:color-mix(in srgb,var(--accent) 45%,var(--cream));}
   .spread-fig:has(img){border:3px solid var(--coffee);box-shadow:8px 8px 0 var(--accent);}
+  .spread-fig.lowres{aspect-ratio:auto;justify-self:start;}
+  .peek-card .pf img.lowres{inset:0;margin:auto;width:auto;max-width:33vw;height:100%;object-fit:contain;}
   .spread-kick{font-family:var(--f-mono);font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 16px;}
   .spread h2{font-size:clamp(36px,4.6vw,72px);line-height:1;letter-spacing:-.05em;margin:0 0 16px;}
   .spread-line{font-size:20px;line-height:28px;color:var(--coffee-mid);margin:0 0 24px;max-width:40ch;}
@@ -225,7 +227,7 @@
       </div>
     </article>
     <article class="spread" data-pillar="school">
-      <figure class="spread-fig ph"><img src="images/council/01.jpg" alt="Student council event" loading="lazy"></figure>
+      <figure class="spread-fig ph lowres"><img src="images/council/01.jpg" alt="Student council event" loading="lazy"></figure>
       <div class="spread-txt">
         <p class="spread-kick">03 / School</p>
         <h2>School sustainability</h2>

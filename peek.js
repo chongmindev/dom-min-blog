@@ -38,6 +38,7 @@
       var pi = document.createElement('img');
       pi.dataset.src = img.getAttribute('src');
       pi.alt = '';
+      if (img.closest('.lowres')) pi.className = 'lowres';
       pf.appendChild(pi);
     } else {
       var cap = document.createElement('span');

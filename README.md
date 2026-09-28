@@ -1,4 +1,4 @@
-# Thumbs Up Coffee Portfolio
+# Dom Min Blog
 
 Dom Min's portfolio site. Plain HTML and CSS, no build step. Open any page through a local server (not by double clicking the file), because the map and Notion embeds refuse to load from `file://`:
 
