@@ -33,4 +33,3 @@ Shared styles live in `styles.css`. Scripts: `nav.js` (nav underline and page tr
 - Replace the stand-in cover photos (the first one is not Dom).
 - Fill in the bracketed placeholder copy.
 - Add Spread:Seed photos (the Environmental band shows "Photos coming soon").
-- Confirm the Spread:Seed link (`spreadseed.org` is a guess).
