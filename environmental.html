@@ -66,17 +66,20 @@
   <section class="section">
     <div class="section-head" data-kind="Research">
       <h2 class="fit-line">Marine-derived biopolymers for single-use cups</h2>
-      <span class="role">Research paper · Suwon University · 2025</span>
-    </div>
-    <div class="badges">
-      <span class="badge">KSEF Silver Medal</span>
-      <span class="badge">IYRC Publication</span>
+      <div class="role-row">
+        <span class="role">Research paper · Suwon University · 2025</span>
+        <div class="badges">
+          <span class="badge">KSEF Silver Medal</span>
+          <span class="badge">IYRC Publication</span>
+        </div>
+      </div>
     </div>
     <p>Developed biodegradable single-use cups from seaweed-based biopolymers, testing kelp and seaweed blends for flexibility and structural integrity. A kelp–gelatin blend proved the most durable, a sustainable alternative to conventional plastic.</p>
 
     <div class="research-grid">
       <!-- pages are pre-rendered images, not a PDF viewer: embedded viewers grab focus and jump the page -->
       <div class="paper">
+        <div class="paper-view">
         <div class="paper-pages" tabindex="0" role="region" aria-label="Research paper, 5 pages">
           <img src="images/research/paper-p1.jpg" alt="Research paper, page 1 of 5">
           <img src="images/research/paper-p2.jpg" alt="Research paper, page 2 of 5" loading="lazy">
@@ -84,7 +87,9 @@
           <img src="images/research/paper-p4.jpg" alt="Research paper, page 4 of 5" loading="lazy">
           <img src="images/research/paper-p5.jpg" alt="Research paper, page 5 of 5" loading="lazy">
         </div>
-        <p class="embed-note">IYRC Journal · 5 pages · scroll inside to read</p>
+        <span class="page-count" aria-hidden="true"><b>1</b> / 5</span>
+        </div>
+        <a class="notes-link notes-link--down" href="Min_IYRCJournal_2025.pdf" download>Download paper (PDF) <span aria-hidden="true">↓</span></a>
       </div>
       <div class="research-side">
         <div class="gallery research-photos">
@@ -105,5 +110,22 @@
 </footer>
 <script src="reveal.js" defer></script>
 <script src="nav.js" defer></script>
+<script>
+// page counter on the paper preview: the page crossing the middle of the viewer is the current one
+(function(){
+  var box=document.querySelector('.paper-pages'),n=document.querySelector('.page-count b');
+  if(!box||!n)return;
+  var pages=box.querySelectorAll('img');
+  function update(){
+    var mid=box.scrollTop+box.clientHeight/2,cur=1;
+    pages.forEach(function(p,i){if(p.offsetTop<=mid)cur=i+1;});
+    if(box.scrollTop+box.clientHeight>=box.scrollHeight-2)cur=pages.length;
+    n.textContent=cur;
+  }
+  box.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  update();
+})();
+</script>
 </body>
 </html>

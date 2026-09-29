@@ -16,6 +16,64 @@
     nav.scrollLeft = active.offsetLeft - (nav.clientWidth - active.offsetWidth) / 2;
   }
 
+  // phone menu: a Contact button and a menu button in the header, opening a
+  // full-screen list of the same links. The sheet lives on <body> because the
+  // header's backdrop-filter would otherwise trap a fixed child inside it.
+  var header = document.querySelector('.site-header');
+  if (header && nav) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'menu-btn';
+    btn.setAttribute('aria-label', 'Open menu');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', 'menu-sheet');
+    btn.innerHTML = '<span></span><span></span><span></span>';
+
+    var cta = document.createElement('a');
+    cta.className = 'menu-cta';
+    cta.href = 'contact.html';
+    cta.textContent = 'Contact';
+
+    var sheet = document.createElement('nav');
+    sheet.className = 'menu-sheet';
+    sheet.id = 'menu-sheet';
+    sheet.setAttribute('aria-label', 'Sections');
+    Array.prototype.forEach.call(nav.querySelectorAll('a'), function (a, i) {
+      var link = document.createElement('a');
+      link.href = a.getAttribute('href');
+      if (a.classList.contains('on')) link.setAttribute('aria-current', 'page');
+      link.innerHTML = '<span class="n">' + String(i + 1).padStart(2, '0') + '</span>';
+      link.appendChild(document.createTextNode(a.textContent.trim()));
+      sheet.appendChild(link);
+    });
+
+    header.appendChild(cta);
+    header.appendChild(btn);
+    document.body.appendChild(sheet);
+    root.classList.add('has-menu');
+
+    var setOpen = function (open) {
+      document.body.classList.toggle('menu-open', open);
+      header.classList.toggle('menu-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      if (open) sheet.querySelector('a').focus({ preventScroll: true });
+    };
+    btn.addEventListener('click', function () {
+      setOpen(!document.body.classList.contains('menu-open'));
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+    sheet.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setOpen(false);
+    });
+    window.addEventListener('pageshow', function () { setOpen(false); });
+  }
+
   // one shared underline that glides to whichever link is hovered or focused,
   // takes that link's pillar color, and settles back under the current page
   if (nav) {

@@ -108,6 +108,11 @@
   .spread-fig{aspect-ratio:4/3;background:color-mix(in srgb,var(--accent) 14%,var(--cream));border-color:color-mix(in srgb,var(--accent) 45%,var(--cream));}
   .spread-fig:has(img){border:3px solid var(--coffee);box-shadow:8px 8px 0 var(--accent);}
   .spread-fig.lowres{aspect-ratio:auto;justify-self:start;}
+  /* school photo on wide screens: trim 10% off top and bottom, scale back up to the same height, so it runs 25% wider */
+  @media (min-width:821px){
+    .spread[data-pillar="school"] .spread-fig.lowres{max-width:calc(33vw * 1.25);width:100%;aspect-ratio:1199/1280;}
+    .spread[data-pillar="school"] .spread-fig.lowres img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;}
+  }
   .peek-card .pf img.lowres{inset:0;margin:auto;width:auto;max-width:33vw;height:100%;object-fit:contain;}
   .spread-kick{font-family:var(--f-mono);font-size:12px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink,var(--accent));margin:0 0 16px;}
   .spread h2{font-size:clamp(36px,4.6vw,72px);line-height:1;letter-spacing:-.05em;margin:0 0 16px;}
@@ -130,6 +135,9 @@
   @media (max-width:820px){
     .home{grid-template-columns:1fr;padding:16px 0 24px;gap:24px;}
     .cover{grid-template-columns:1fr;}
+    .cover-dots{gap:0;bottom:0;}
+    .home-left .cls{white-space:normal;font-size:11px;letter-spacing:.06em;text-wrap:balance;}
+    .cover-dots button{width:44px;height:44px;}
     .plist{margin:24px 0 0;}
     .spread{grid-template-columns:1fr;gap:24px;padding:32px 0;}
     .spread:nth-child(even) .spread-fig{order:0;}
@@ -164,12 +172,11 @@
       <div class="cover">
         <div class="cover-frame">
           <figure class="ph cover-ph"><span class="cap">Portraits go here</span></figure>
-          <img class="cover-img" data-src="images/portraits/01.jpg" alt="Portrait">
-          <!-- stand-ins until more portraits land in images/portraits/ -->
-          <img class="cover-img" data-src="images/council/05.jpg" alt="Student council snack event">
-          <img class="cover-img" data-src="images/awake/10.jpg" alt="Iced drink at Cafe Awake">
-          <img class="cover-img" data-src="images/council/13.jpg" alt="Students at a council gathering">
-          <img class="cover-img" data-src="images/samjung/06.jpg" alt="In the Samjung flavor lab">
+          <img class="cover-img" data-src="images/portraits/portrait-1.jpg" alt="Portrait of Dom Min" style="object-position:50% 25%">
+          <img class="cover-img" data-src="images/portraits/portrait-2.jpg" alt="Dom brewing pour-over coffee behind a counter" style="object-position:50% 30%">
+          <img class="cover-img" data-src="images/portraits/portrait-3.jpg" alt="Dom weighing a sample on a lab balance" style="object-position:45% 30%">
+          <img class="cover-img" data-src="images/portraits/portrait-4.jpg" alt="Dom holding a glass coffee server" style="object-position:40% 30%">
+          <img class="cover-img" data-src="images/portraits/portrait-5.jpg" alt="Dom in a lab coat in the flavor lab" style="object-position:100% 40%">
           <div class="cover-dots" hidden></div>
         </div>
         <div class="cover-text">
