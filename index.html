@@ -73,8 +73,8 @@
   .plist a:hover .mk .b{fill:var(--cream);}
   .plist a:hover .mk .c{stroke:var(--accent);}
   .plist .txt{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0;}
-  .plist .nm{font-family:var(--f-display);font-weight:700;font-size:21px;line-height:26px;letter-spacing:-.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .plist .sub{font-size:13px;line-height:18px;color:var(--coffee-mid);font-weight:500;transition:color .3s var(--ease);}
+  .plist .nm{font-family:var(--f-display);font-weight:700;font-size:23px;line-height:28px;letter-spacing:-.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .plist .sub{font-size:14px;line-height:20px;color:var(--coffee-mid);font-weight:500;transition:color .3s var(--ease);}
   .plist a:hover .sub{color:var(--cream);}
   .plist .go{flex:none;font-size:20px;line-height:28px;font-weight:600;transform:translateX(-8px);opacity:0;transition:transform .3s var(--ease),opacity .3s var(--ease);}
   .plist a:hover .go{transform:none;opacity:1;}
@@ -82,8 +82,8 @@
   /* the rows share out the space left under the cover, so the list's last rule lands on the bottom of the map's 8px shadow */
   @media (min-width:821px){.plist{flex:1;margin-bottom:-8px;}.plist a{flex:1 1 auto;}}
   /* tall screens: the rows get taller, so the type grows with them */
-  @media (min-width:821px) and (min-height:1000px){.plist .nm{font-size:26px;line-height:32px;}.plist .sub{font-size:15px;line-height:22px;}}
-  @media (min-width:821px) and (max-height:820px){.plist{margin-top:16px;}.plist a{padding:4px 12px;}.plist .nm{font-size:18px;line-height:22px;}.plist .sub{font-size:12px;line-height:16px;}}
+  @media (min-width:821px) and (min-height:1000px){.plist .nm{font-size:28px;line-height:34px;}.plist .sub{font-size:16px;line-height:24px;}}
+  @media (min-width:821px) and (max-height:820px){.plist{margin-top:16px;}.plist a{padding:4px 12px;}.plist .nm{font-size:20px;line-height:24px;}.plist .sub{font-size:13px;line-height:17px;}}
   .home-map{height:calc(100dvh - 116px);border:3px solid var(--coffee);border-radius:var(--radius);overflow:hidden;background:var(--cream-deep);
     box-shadow:8px 8px 0 var(--map-shadow,var(--brick));transition:box-shadow .6s var(--ease);}
   /* while a pillar row is hovered, the map's shadow turns a darker shade of that pillar (30% espresso ink),
@@ -162,7 +162,7 @@
     .plist a{padding:12px 0;}
     .cover-frame{height:auto;width:100%;aspect-ratio:4/5;}
     .home-map{height:52vh;}
-    .plist .nm{white-space:normal;font-size:20px;line-height:28px;}
+    .plist .nm{white-space:normal;font-size:22px;line-height:28px;}
   }
 </style>
 </head>
