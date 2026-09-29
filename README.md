@@ -16,6 +16,7 @@ then visit http://localhost:8000.
 | Environmental | `environmental.html` |
 | Social | `social.html` |
 | School | `school.html` |
+| Work & volunteering | `work.html` |
 | Brew logs | `brew-logs.html` |
 | Contact | `contact.html` |
 

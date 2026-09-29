@@ -25,6 +25,7 @@
   --social:#C2185B;        /* social: magenta */
   --school:#D46300;        /* school: official #FF7D00, darkened only enough for large text and fills */
   --school-ink:#B35700;    /* same hue, darker: small school-colored text (passes 4.5:1) */
+  --work:#2446A8;          /* work & volunteering: cobalt, the one cool hue apart from emerald */
   --brew:#6F4E37;          /* brew logs: coffee brown */
 
   --f-display:"Schibsted Grotesk",system-ui,sans-serif;
@@ -49,6 +50,7 @@
 body.t-env{--accent:var(--env);}
 body.t-social{--accent:var(--social);}
 body.t-school{--accent:var(--school);--accent-ink:var(--school-ink);}
+body.t-work{--accent:var(--work);}
 body.t-brew{--accent:var(--brew);}
 
 *{box-sizing:border-box;}
@@ -102,6 +104,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .nav a[href="social.html"]{--accent:var(--social);}
 .nav a[href="environmental.html"]{--accent:var(--env);}
 .nav a[href="school.html"]{--accent:var(--school);--accent-ink:var(--school-ink);}
+.nav a[href="work.html"]{--accent:var(--work);}
 .nav a[href="brew-logs.html"]{--accent:var(--brew);}
 .nav a:hover,.nav a:focus-visible{color:var(--coffee);}
 .nav a.on{color:var(--coffee);font-weight:600;}
@@ -156,6 +159,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   .menu-sheet a[href="environmental.html"]{--accent:var(--env);}
   .menu-sheet a[href="social.html"]{--accent:var(--social);}
   .menu-sheet a[href="school.html"]{--accent:var(--school);--accent-ink:var(--school-ink);}
+  .menu-sheet a[href="work.html"]{--accent:var(--work);}
   .menu-sheet a[href="brew-logs.html"]{--accent:var(--brew);}
   .menu-sheet a[aria-current="page"]{color:var(--accent);}
   .menu-open .menu-sheet a{opacity:1;transform:none;}
@@ -164,6 +168,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   .menu-open .menu-sheet a:nth-child(4){transition-delay:.12s;}
   .menu-open .menu-sheet a:nth-child(5){transition-delay:.16s;}
   .menu-open .menu-sheet a:nth-child(6){transition-delay:.2s;}
+  .menu-open .menu-sheet a:nth-child(7){transition-delay:.24s;}
   body.menu-open{overflow:hidden;}
 
   /* thumb-sized targets for text links on phones */
