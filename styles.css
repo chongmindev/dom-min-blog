@@ -486,6 +486,9 @@ a.part:hover .part-go{transform:translate(3px,-3px);}
 /* empty photo slots placed beside content */
 .gallery.slots{margin-top:24px;}
 .gallery.slots > .ph{aspect-ratio:3/2;}
+/* one slot split into a 2x2 of smaller photos (the cushion, fabric to finished batch) */
+.gallery .quad{aspect-ratio:3/2;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px;}
+.gallery .quad > .ph{aspect-ratio:auto;height:100%;min-height:0;}
 .gallery.slots-2{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}
 .advocacy-txt .gallery.slots{margin-top:16px;}
 /* interview still (a 16:9 video frame) gets most of the row; the second photo matches its height */
