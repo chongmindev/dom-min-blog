@@ -22,6 +22,8 @@ then visit http://localhost:8000.
 
 Shared styles live in `styles.css`. Scripts: `nav.js` (nav underline and page transition), `cover.js` (home slideshow), `peek.js` (home section previews), `reveal.js` (entrance animation).
 
+The pages link these as `styles.css?v=2`, `nav.js?v=2`, and so on. After changing a CSS or JS file, bump the number in every page so visitors don't keep a cached old copy.
+
 ## Editing
 
 - **Text:** edit the copy directly in each page's HTML.
