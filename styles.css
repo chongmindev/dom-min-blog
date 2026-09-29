@@ -100,7 +100,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   transition:color .3s var(--ease);
 }
 /* each link carries its own pillar accent; home and contact use the brand red */
-.nav a[href="index.html"],.nav a[href="contact.html"]{--accent:var(--brick);}
+.nav a[href="/"],.nav a[href="contact.html"]{--accent:var(--brick);}
 .nav a[href="social.html"]{--accent:var(--social);}
 .nav a[href="environmental.html"]{--accent:var(--env);}
 .nav a[href="school.html"]{--accent:var(--school);--accent-ink:var(--school-ink);}
