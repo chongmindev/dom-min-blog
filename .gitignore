@@ -8,5 +8,5 @@ skills-lock.json
 
 .DS_Store
 
-# raw photo downloads; the site uses resized copies in images/research/
+# raw photo downloads; the site uses resized copies in images/
 images/drive-download-*/
