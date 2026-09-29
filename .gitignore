@@ -7,3 +7,6 @@ dom min blog/
 skills-lock.json
 
 .DS_Store
+
+# raw photo downloads; the site uses resized copies in images/research/
+images/drive-download-*/
