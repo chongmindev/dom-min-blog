@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet" />
 <script>try{var f=sessionStorage.getItem("flood");if(f){sessionStorage.removeItem("flood");document.documentElement.setAttribute("data-flood","");document.documentElement.style.setProperty("--flood",f);}}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=5" />
+<link rel="stylesheet" href="styles.css?v=6" />
 <link rel="icon" href="favicon.svg" />
 <style>
   .home{
@@ -176,12 +176,12 @@
   </a>
   <nav class="nav" aria-label="Sections">
     <a href="/" class="on" aria-current="page">Home</a>
-    <a href="environmental.html">Environmental</a>
-    <a href="social.html">Social</a>
-    <a href="school.html">School</a>
-    <a href="work.html">Work &amp; volunteering</a>
-    <a href="brew-logs.html">Brew logs</a>
-    <a href="contact.html">Contact</a>
+    <a href="/environmental">Environmental</a>
+    <a href="/social">Social</a>
+    <a href="/school">School</a>
+    <a href="/work">Work &amp; volunteering</a>
+    <a href="/brew-logs">Brew logs</a>
+    <a href="/contact">Contact</a>
   </nav>
 </header>
 
@@ -205,27 +205,27 @@
         </div>
       </div>
       <nav class="plist">
-        <a class="env" href="environmental.html">
+        <a class="env" href="/environmental">
           <svg class="mk" viewBox="0 0 20 26" aria-hidden="true"><ellipse class="b" cx="10" cy="13" rx="8" ry="12"/><path class="c" d="M6.4 3.6 C 11 9, 9 17, 13.6 22.4" fill="none" stroke-linecap="round"/></svg>
           <span class="txt"><span class="nm">Environmental sustainability</span><span class="sub">Spread:Seed nonprofit and materials research</span></span>
           <span class="go" aria-hidden="true">→</span>
         </a>
-        <a class="social" href="social.html">
+        <a class="social" href="/social">
           <svg class="mk" viewBox="0 0 20 26" aria-hidden="true"><ellipse class="b" cx="10" cy="13" rx="8" ry="12"/><path class="c" d="M6.4 3.6 C 11 9, 9 17, 13.6 22.4" fill="none" stroke-linecap="round"/></svg>
           <span class="txt"><span class="nm">Social sustainability</span><span class="sub">Coffee map, reviews, and a consulting app</span></span>
           <span class="go" aria-hidden="true">→</span>
         </a>
-        <a class="school" href="school.html">
+        <a class="school" href="/school">
           <svg class="mk" viewBox="0 0 20 26" aria-hidden="true"><ellipse class="b" cx="10" cy="13" rx="8" ry="12"/><path class="c" d="M6.4 3.6 C 11 9, 9 17, 13.6 22.4" fill="none" stroke-linecap="round"/></svg>
           <span class="txt"><span class="nm">School sustainability</span><span class="sub">TIGERCLUBS.ORG and student council</span></span>
           <span class="go" aria-hidden="true">→</span>
         </a>
-        <a class="work" href="work.html">
+        <a class="work" href="/work">
           <svg class="mk" viewBox="0 0 20 26" aria-hidden="true"><ellipse class="b" cx="10" cy="13" rx="8" ry="12"/><path class="c" d="M6.4 3.6 C 11 9, 9 17, 13.6 22.4" fill="none" stroke-linecap="round"/></svg>
           <span class="txt"><span class="nm">Work experience &amp; volunteering</span><span class="sub">Cafe Awake, Samjung, and Nanoom Korea</span></span>
           <span class="go" aria-hidden="true">→</span>
         </a>
-        <a class="brew" href="brew-logs.html">
+        <a class="brew" href="/brew-logs">
           <svg class="mk" viewBox="0 0 20 26" aria-hidden="true"><ellipse class="b" cx="10" cy="13" rx="8" ry="12"/><path class="c" d="M6.4 3.6 C 11 9, 9 17, 13.6 22.4" fill="none" stroke-linecap="round"/></svg>
           <span class="txt"><span class="nm">Brew logs</span><span class="sub">250+ cups brewed and logged</span></span>
           <span class="go" aria-hidden="true">→</span>
@@ -241,7 +241,7 @@
 
   <section class="spreads" aria-label="Sections">
     <article class="spread" data-pillar="env">
-      <figure class="spread-fig ph"><span class="cap">Spread:Seed photo</span></figure>
+      <figure class="spread-fig ph"><img src="images/spreadseed/volunteers.jpg" alt="Spread:Seed volunteers in green vests" loading="lazy"></figure>
       <div class="spread-txt">
         <p class="spread-kick">01 / Environmental</p>
         <h2>Environmental sustainability</h2>
@@ -251,7 +251,7 @@
           <div><span class="n">$5,000+</span><span class="l">to enviro. orgs</span></div>
           <div><span class="n">Silver</span><span class="l">KSEF medal</span></div>
         </div>
-        <a class="spread-go" href="environmental.html">See environmental work <span aria-hidden="true">→</span></a>
+        <a class="spread-go" href="/environmental">See environmental work <span aria-hidden="true">→</span></a>
       </div>
     </article>
     <article class="spread" data-pillar="social">
@@ -264,7 +264,7 @@
           <div><span class="n">50+</span><span class="l">cafes reviewed</span></div>
           <div><span class="n">$2,000+</span><span class="l">raised for cafes</span></div>
         </div>
-        <a class="spread-go" href="social.html">See social work <span aria-hidden="true">→</span></a>
+        <a class="spread-go" href="/social">See social work <span aria-hidden="true">→</span></a>
       </div>
     </article>
     <article class="spread" data-pillar="school">
@@ -277,7 +277,7 @@
           <div><span class="n">300+</span><span class="l">active users</span></div>
           <div><span class="n">20+</span><span class="l">events a year</span></div>
         </div>
-        <a class="spread-go" href="school.html">See school work <span aria-hidden="true">→</span></a>
+        <a class="spread-go" href="/school">See school work <span aria-hidden="true">→</span></a>
       </div>
     </article>
     <article class="spread" data-pillar="work">
@@ -291,7 +291,7 @@
           <li>Samjung</li>
           <li>Nanoom Korea</li>
         </ul>
-        <a class="spread-go" href="work.html">See work &amp; volunteering <span aria-hidden="true">→</span></a>
+        <a class="spread-go" href="/work">See work &amp; volunteering <span aria-hidden="true">→</span></a>
       </div>
     </article>
     <article class="spread" data-pillar="brew">
@@ -304,13 +304,13 @@
           <div><span class="n">250+</span><span class="l">cups brewed</span></div>
           <div><span class="n">300+</span><span class="l">hours of study</span></div>
         </div>
-        <a class="spread-go" href="brew-logs.html">See brew logs <span aria-hidden="true">→</span></a>
+        <a class="spread-go" href="/brew-logs">See brew logs <span aria-hidden="true">→</span></a>
       </div>
     </article>
   </section>
 </main>
 <script src="reveal.js?v=2" defer></script>
-<script src="nav.js?v=2" defer></script>
+<script src="nav.js?v=3" defer></script>
 <script src="cover.js?v=2" defer></script>
 <script src="peek.js?v=2" defer></script>
 </body>

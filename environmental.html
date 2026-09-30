@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet" />
 <script>try{var f=sessionStorage.getItem("flood");if(f){sessionStorage.removeItem("flood");document.documentElement.setAttribute("data-flood","");document.documentElement.style.setProperty("--flood",f);}}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=5" />
+<link rel="stylesheet" href="styles.css?v=6" />
 <link rel="icon" href="favicon.svg" />
 </head>
 <body class="t-env">
@@ -22,12 +22,12 @@
   </a>
   <nav class="nav" aria-label="Sections">
     <a href="/">Home</a>
-    <a href="environmental.html" class="on" aria-current="page">Environmental</a>
-    <a href="social.html">Social</a>
-    <a href="school.html">School</a>
-    <a href="work.html">Work &amp; volunteering</a>
-    <a href="brew-logs.html">Brew logs</a>
-    <a href="contact.html">Contact</a>
+    <a href="/environmental" class="on" aria-current="page">Environmental</a>
+    <a href="/social">Social</a>
+    <a href="/school">School</a>
+    <a href="/work">Work &amp; volunteering</a>
+    <a href="/brew-logs">Brew logs</a>
+    <a href="/contact">Contact</a>
   </nav>
 </header>
 
@@ -53,13 +53,16 @@
       <p>A youth-led initiative empowering high school students to tackle food security and environmental challenges as researchers and changemakers. Our goal is sustainability at every stage, from cutting food waste to supporting sustainable agriculture.</p>
       <a class="btn" href="https://respread.org/spreadseed" target="_blank" rel="noopener">Visit Spread:Seed website</a>
     </div>
-    <div class="gallery thirds">
-      <figure class="ph"><span class="cap">Farm visit</span></figure>
-      <figure class="ph olive"><span class="cap">Food-bank drive</span></figure>
-      <figure class="ph sand"><span class="cap">Campaign event</span></figure>
-      <figure class="ph olive"><span class="cap">Members / team</span></figure>
-      <figure class="ph"><span class="cap">Donation handoff</span></figure>
-      <figure class="ph sand"><span class="cap">District recognition</span></figure>
+    <div class="gallery rows">
+      <div class="row">
+        <figure class="ph" style="--r:1.406"><img src="images/spreadseed/volunteers.jpg" alt="Collage of Spread:Seed volunteers in green vests at neighborhood clean-ups and planting days" loading="lazy"></figure>
+        <figure class="ph" style="--r:1.333"><img src="images/spreadseed/food-2.jpg" alt="Stacks of canned tuna collected for a food bank donation" loading="lazy"></figure>
+        <figure class="ph" style="--r:1.335"><img src="images/spreadseed/seedlings.jpg" alt="Seedling trays with a soil moisture meter" loading="lazy"></figure>
+      </div>
+      <div class="row">
+        <figure class="ph" style="--r:2"><img src="images/spreadseed/food-1.jpg" alt="Rows of canned tuna for the food bank drive" loading="lazy" style="object-position:50% 65%"></figure>
+        <figure class="ph" style="--r:1.6"><img src="images/spreadseed/food-3.jpg" alt="Spam, canned tuna, and canned peaches donated to a food bank" loading="lazy" style="object-position:50% 45%"></figure>
+      </div>
     </div>
   </section>
 
@@ -115,7 +118,7 @@
   <a href="/">← Back to home</a>
 </footer>
 <script src="reveal.js?v=2" defer></script>
-<script src="nav.js?v=2" defer></script>
+<script src="nav.js?v=3" defer></script>
 <script>
 // page counter on the paper preview: the page crossing the middle of the viewer is the current one
 (function(){

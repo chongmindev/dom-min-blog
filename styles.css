@@ -100,12 +100,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   transition:color .3s var(--ease);
 }
 /* each link carries its own pillar accent; home and contact use the brand red */
-.nav a[href="/"],.nav a[href="contact.html"]{--accent:var(--brick);}
-.nav a[href="social.html"]{--accent:var(--social);}
-.nav a[href="environmental.html"]{--accent:var(--env);}
-.nav a[href="school.html"]{--accent:var(--school);--accent-ink:var(--school-ink);}
-.nav a[href="work.html"]{--accent:var(--work);}
-.nav a[href="brew-logs.html"]{--accent:var(--brew);}
+.nav a[href="/"],.nav a[href="/contact"]{--accent:var(--brick);}
+.nav a[href="/social"]{--accent:var(--social);}
+.nav a[href="/environmental"]{--accent:var(--env);}
+.nav a[href="/school"]{--accent:var(--school);--accent-ink:var(--school-ink);}
+.nav a[href="/work"]{--accent:var(--work);}
+.nav a[href="/brew-logs"]{--accent:var(--brew);}
 .nav a:hover,.nav a:focus-visible{color:var(--coffee);}
 .nav a.on{color:var(--coffee);font-weight:600;}
 /* no-JS fallback: a static rule under the current page */
@@ -156,11 +156,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
     opacity:0;transform:translateY(24px);transition:opacity .5s var(--ease),transform .5s var(--ease);}
   .menu-sheet a:first-child{border-top:3px solid var(--coffee);}
   .menu-sheet a .n{font-family:var(--f-mono);font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--accent-ink,var(--accent));width:24px;}
-  .menu-sheet a[href="environmental.html"]{--accent:var(--env);}
-  .menu-sheet a[href="social.html"]{--accent:var(--social);}
-  .menu-sheet a[href="school.html"]{--accent:var(--school);--accent-ink:var(--school-ink);}
-  .menu-sheet a[href="work.html"]{--accent:var(--work);}
-  .menu-sheet a[href="brew-logs.html"]{--accent:var(--brew);}
+  .menu-sheet a[href="/environmental"]{--accent:var(--env);}
+  .menu-sheet a[href="/social"]{--accent:var(--social);}
+  .menu-sheet a[href="/school"]{--accent:var(--school);--accent-ink:var(--school-ink);}
+  .menu-sheet a[href="/work"]{--accent:var(--work);}
+  .menu-sheet a[href="/brew-logs"]{--accent:var(--brew);}
   .menu-sheet a[aria-current="page"]{color:var(--accent);}
   .menu-open .menu-sheet a{opacity:1;transform:none;}
   .menu-open .menu-sheet a:nth-child(2){transition-delay:.04s;}

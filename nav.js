@@ -5,6 +5,12 @@
 // Without JS or with reduced motion, links are plain links.
 (function () {
   var root = document.documentElement;
+
+  // old links (/work.html, /index.html) still open the page; tidy the address bar to the clean form
+  var path = location.pathname.replace(/index\.html$/, '').replace(/\.html$/, '');
+  if (path !== location.pathname && window.history && history.replaceState) {
+    history.replaceState(history.state, '', path + location.search + location.hash);
+  }
   var nav = document.querySelector('.nav');
   var active = nav && nav.querySelector('a.on');
   var ease = 'cubic-bezier(0.32,0.72,0,1)';
@@ -31,7 +37,7 @@
 
     var cta = document.createElement('a');
     cta.className = 'menu-cta';
-    cta.href = 'contact.html';
+    cta.href = '/contact';
     cta.textContent = 'Contact';
 
     var sheet = document.createElement('nav');

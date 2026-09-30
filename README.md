@@ -3,10 +3,10 @@
 Dom Min's portfolio site. Plain HTML and CSS, no build step. Open any page through a local server (not by double clicking the file), because the map and Notion embeds refuse to load from `file://`:
 
 ```
-python3 -m http.server 8000
+python3 serve.py
 ```
 
-then visit http://localhost:8000.
+then visit http://localhost:8000. (`serve.py` works like GitHub Pages, so clean links such as `/work` open `work.html`.)
 
 ## Pages
 
