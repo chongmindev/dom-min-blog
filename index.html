@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet" />
 <script>try{var f=sessionStorage.getItem("flood");if(f){sessionStorage.removeItem("flood");document.documentElement.setAttribute("data-flood","");document.documentElement.style.setProperty("--flood",f);}}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=13" />
+<link rel="stylesheet" href="styles.css?v=16" />
 <link rel="icon" href="favicon.svg" />
 <style>
   .home{
@@ -181,8 +181,8 @@
   </a>
   <nav class="nav" aria-label="Sections">
     <a href="/" class="on" aria-current="page">Home</a>
-    <a href="/environmental">Environmental</a>
     <a href="/social">Social</a>
+    <a href="/environmental">Environmental</a>
     <a href="/school">School</a>
     <a href="/work">Work &amp; volunteering</a>
     <a href="/brew-logs">Brew logs</a>
@@ -211,14 +211,14 @@
         </div>
       </div>
       <nav class="plist">
-        <a class="env" href="/environmental">
-          <svg class="mk" viewBox="0 0 20 26" aria-hidden="true"><ellipse class="b" cx="10" cy="13" rx="8" ry="12"/><path class="c" d="M6.4 3.6 C 11 9, 9 17, 13.6 22.4" fill="none" stroke-linecap="round"/></svg>
-          <span class="txt"><span class="nm">Environmental sustainability</span><span class="sub">Spread:Seed nonprofit and materials research</span></span>
-          <span class="go" aria-hidden="true">→</span>
-        </a>
         <a class="social" href="/social">
           <svg class="mk" viewBox="0 0 20 26" aria-hidden="true"><ellipse class="b" cx="10" cy="13" rx="8" ry="12"/><path class="c" d="M6.4 3.6 C 11 9, 9 17, 13.6 22.4" fill="none" stroke-linecap="round"/></svg>
           <span class="txt"><span class="nm">Social sustainability</span><span class="sub">Coffee map, reviews, and a consulting app</span></span>
+          <span class="go" aria-hidden="true">→</span>
+        </a>
+        <a class="env" href="/environmental">
+          <svg class="mk" viewBox="0 0 20 26" aria-hidden="true"><ellipse class="b" cx="10" cy="13" rx="8" ry="12"/><path class="c" d="M6.4 3.6 C 11 9, 9 17, 13.6 22.4" fill="none" stroke-linecap="round"/></svg>
+          <span class="txt"><span class="nm">Environmental sustainability</span><span class="sub">Spread:Seed nonprofit and materials research</span></span>
           <span class="go" aria-hidden="true">→</span>
         </a>
         <a class="school" href="/school">
@@ -251,10 +251,23 @@
   </div>
 
   <section class="spreads" aria-label="Sections">
+    <article class="spread" data-pillar="social">
+      <figure class="spread-fig ph"><img src="images/instagram/01.png" alt="Cafe reviews on Instagram" loading="lazy"></figure>
+      <div class="spread-txt">
+        <p class="spread-kick">01 / Social</p>
+        <h2>Social sustainability</h2>
+        <p class="spread-line">Independent cafes vs. franchise expansion in Seoul.</p>
+        <div class="spread-stats">
+          <div><span class="n">50+</span><span class="l">cafes reviewed</span></div>
+          <div><span class="n">$2,000+</span><span class="l">raised for cafes</span></div>
+        </div>
+        <a class="spread-go" href="/social">See social work <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
     <article class="spread" data-pillar="env">
       <figure class="spread-fig ph"><img src="images/spreadseed/volunteers.jpg" alt="Spread:Seed volunteers in green vests" loading="lazy"></figure>
       <div class="spread-txt">
-        <p class="spread-kick">01 / Environmental</p>
+        <p class="spread-kick">02 / Environmental</p>
         <h2>Environmental sustainability</h2>
         <p class="spread-line">Spread:Seed nonprofit and marine biopolymer research.</p>
         <div class="spread-stats">
@@ -263,19 +276,6 @@
           <div><span class="n">Silver</span><span class="l">KSEF medal</span></div>
         </div>
         <a class="spread-go" href="/environmental">See environmental work <span aria-hidden="true">→</span></a>
-      </div>
-    </article>
-    <article class="spread" data-pillar="social">
-      <figure class="spread-fig ph"><img src="images/instagram/01.png" alt="Cafe reviews on Instagram" loading="lazy"></figure>
-      <div class="spread-txt">
-        <p class="spread-kick">02 / Social</p>
-        <h2>Social sustainability</h2>
-        <p class="spread-line">Independent cafes vs. franchise expansion in Seoul.</p>
-        <div class="spread-stats">
-          <div><span class="n">50+</span><span class="l">cafes reviewed</span></div>
-          <div><span class="n">$2,000+</span><span class="l">raised for cafes</span></div>
-        </div>
-        <a class="spread-go" href="/social">See social work <span aria-hidden="true">→</span></a>
       </div>
     </article>
     <article class="spread" data-pillar="school">

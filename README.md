@@ -13,8 +13,8 @@ then visit http://localhost:8000. (`serve.py` works like GitHub Pages, so clean 
 | Page | File |
 |---|---|
 | Home | `index.html` |
-| Environmental | `environmental.html` |
 | Social | `social.html` |
+| Environmental | `environmental.html` |
 | School | `school.html` |
 | Work & volunteering | `work.html` |
 | Brew logs | `brew-logs.html` |

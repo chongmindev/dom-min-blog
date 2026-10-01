@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet" />
 <script>try{var f=sessionStorage.getItem("flood");if(f){sessionStorage.removeItem("flood");document.documentElement.setAttribute("data-flood","");document.documentElement.style.setProperty("--flood",f);}}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=13" />
+<link rel="stylesheet" href="styles.css?v=16" />
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -22,8 +22,8 @@
   </a>
   <nav class="nav" aria-label="Sections">
     <a href="/">Home</a>
-    <a href="/environmental">Environmental</a>
     <a href="/social">Social</a>
+    <a href="/environmental">Environmental</a>
     <a href="/school">School</a>
     <a href="/work">Work &amp; volunteering</a>
     <a href="/brew-logs">Brew logs</a>
@@ -39,12 +39,13 @@
 
   <section class="section contact-split">
     <ul class="contacts">
-      <li><span class="k">Email</span><a href="mailto:dommin2027@gmail.com">dommin2027@gmail.com</a></li>
-      <li><span class="k">School</span><a href="mailto:dom.min27@stu.siskorea.org">dom.min27@stu.siskorea.org</a></li>
+      <li><span class="k">Email</span><button type="button" class="copy" data-copy="dommin2027@gmail.com" aria-label="Copy dommin2027@gmail.com"><span class="copy-addr">dommin2027@gmail.com</span><span class="copy-ico" aria-hidden="true"><svg class="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="copy-tip">Copied!</span></span></button></li>
+      <li><span class="k">School</span><button type="button" class="copy" data-copy="dom.min27@stu.siskorea.org" aria-label="Copy dom.min27@stu.siskorea.org"><span class="copy-addr">dom.min27@stu.siskorea.org</span><span class="copy-ico" aria-hidden="true"><svg class="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="copy-tip">Copied!</span></span></button></li>
       <li><span class="k">Instagram</span><a href="https://instagram.com/thumbsup_coffee" target="_blank" rel="noopener">@thumbsup_coffee</a></li>
       <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/dom-min-464a31302/" target="_blank" rel="noopener">dom-min</a></li>
-      <li><span class="k">CV</span><a href="dom-min-resume.pdf" target="_blank" rel="noopener">View resume (PDF)</a></li>
+      <li><span class="k">CV</span><a href="dom-min-resume.pdf?v=2" target="_blank" rel="noopener">View resume (PDF)</a></li>
     </ul>
+    <p class="copy-status" role="status" aria-live="polite"></p>
     <figure class="contact-portrait"><img src="images/portraits/portrait-1.jpg" alt="Portrait of Dom Min"></figure>
   </section>
 </main>
@@ -55,5 +56,6 @@
 </footer>
 <script src="reveal.js?v=2" defer></script>
 <script src="nav.js?v=3" defer></script>
+<script src="copy.js?v=2" defer></script>
 </body>
 </html>
