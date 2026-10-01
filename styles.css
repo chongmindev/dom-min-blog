@@ -555,3 +555,9 @@ footer a{color:var(--coffee-mid);}
   *{transition:none !important;animation:none !important;}
   .reveal{opacity:1 !important;transform:none !important;filter:none !important;}
 }
+
+/* captioned photo row (TIGERCLUBS screens): a small numbered label sits on each tile; tiles open full size */
+.gallery.rows.captioned .ph{display:block;}
+.gallery.rows .ph .fc{position:absolute;left:0;bottom:0;padding:4px 8px;font-family:var(--f-mono);font-size:12px;line-height:16px;
+  color:var(--cream);background:rgba(42,33,28,.82);}
+.gallery.rows .ph .fc b{font-weight:600;color:var(--accent);margin-right:4px;}
