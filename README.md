@@ -18,6 +18,7 @@ then visit http://localhost:8000. (`serve.py` works like GitHub Pages, so clean 
 | School | `school.html` |
 | Work & volunteering | `work.html` |
 | Brew logs | `brew-logs.html` |
+| Art | `art.html` |
 | Contact | `contact.html` |
 
 Shared styles live in `styles.css`. Scripts: `nav.js` (nav underline and page transition), `cover.js` (home slideshow), `peek.js` (home section previews), `reveal.js` (entrance animation).

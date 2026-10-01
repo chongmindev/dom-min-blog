@@ -98,7 +98,7 @@
   }
 
   Array.prototype.forEach.call(rows, function (a) {
-    var key = ['env', 'social', 'school', 'work', 'brew'].filter(function (k) { return a.classList.contains(k); })[0];
+    var key = ['env', 'social', 'school', 'work', 'brew', 'art'].filter(function (k) { return a.classList.contains(k); })[0];
     a.addEventListener('mouseenter', function () { show(key); });
     a.addEventListener('focus', function () { show(key); });
     a.addEventListener('mouseleave', hide);

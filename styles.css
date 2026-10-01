@@ -27,6 +27,7 @@
   --school-ink:#B35700;    /* same hue, darker: small school-colored text (passes 4.5:1) */
   --work:#2446A8;          /* work & volunteering: cobalt, the one cool hue apart from emerald */
   --brew:#6F4E37;          /* brew logs: coffee brown */
+  --art:#6B3FA0;           /* art: violet, between the magenta and cobalt but clear of both */
 
   --f-display:"Schibsted Grotesk",system-ui,sans-serif;
   --f-body:"Schibsted Grotesk",system-ui,sans-serif;
@@ -52,6 +53,7 @@ body.t-social{--accent:var(--social);}
 body.t-school{--accent:var(--school);--accent-ink:var(--school-ink);}
 body.t-work{--accent:var(--work);}
 body.t-brew{--accent:var(--brew);}
+body.t-art{--accent:var(--art);}
 
 *{box-sizing:border-box;}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
@@ -106,6 +108,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .nav a[href="/school"]{--accent:var(--school);--accent-ink:var(--school-ink);}
 .nav a[href="/work"]{--accent:var(--work);}
 .nav a[href="/brew-logs"]{--accent:var(--brew);}
+.nav a[href="/art"]{--accent:var(--art);}
 .nav a:hover,.nav a:focus-visible{color:var(--coffee);}
 .nav a.on{color:var(--coffee);font-weight:600;}
 /* no-JS fallback: a static rule under the current page */
@@ -161,6 +164,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   .menu-sheet a[href="/school"]{--accent:var(--school);--accent-ink:var(--school-ink);}
   .menu-sheet a[href="/work"]{--accent:var(--work);}
   .menu-sheet a[href="/brew-logs"]{--accent:var(--brew);}
+  .menu-sheet a[href="/art"]{--accent:var(--art);}
   .menu-sheet a[aria-current="page"]{color:var(--accent);}
   .menu-open .menu-sheet a{opacity:1;transform:none;}
   .menu-open .menu-sheet a:nth-child(2){transition-delay:.04s;}
@@ -169,6 +173,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   .menu-open .menu-sheet a:nth-child(5){transition-delay:.16s;}
   .menu-open .menu-sheet a:nth-child(6){transition-delay:.2s;}
   .menu-open .menu-sheet a:nth-child(7){transition-delay:.24s;}
+  .menu-open .menu-sheet a:nth-child(8){transition-delay:.28s;}
   body.menu-open{overflow:hidden;}
 
   /* thumb-sized targets for text links on phones */
@@ -561,3 +566,53 @@ footer a{color:var(--coffee-mid);}
 .gallery.rows .ph .fc{position:absolute;left:0;bottom:0;padding:4px 8px;font-family:var(--f-mono);font-size:12px;line-height:16px;
   color:var(--cream);background:rgba(42,33,28,.82);}
 .gallery.rows .ph .fc b{font-weight:600;color:var(--accent);margin-right:4px;}
+
+/* art: each work is a card that flips over (art.js). The ↻ badge, the hint line, the hover lift,
+   and the title on hover all say "this is clickable". */
+.art-hint{margin:-8px 0 16px;font-family:var(--f-mono);font-size:12px;line-height:16px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);}
+.section p.art-hint{font-size:12px;line-height:16px;color:var(--accent);}
+.art-card{cursor:pointer;}
+.art-flip{all:unset;position:absolute;inset:0;cursor:pointer;display:block;}
+.art-flip:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+.art-card .fc{opacity:0;transform:translateY(4px);transition:opacity .3s var(--ease),transform .3s var(--ease);}
+.art-card:hover .fc,.art-flip:focus-visible .fc{opacity:1;transform:none;}
+.flip-badge{position:absolute;top:8px;right:8px;width:28px;height:28px;display:grid;place-items:center;
+  font-size:16px;line-height:1;font-weight:700;color:var(--cream);background:var(--accent);
+  transition:transform .45s var(--ease);}
+.art-card:hover .flip-badge,.art-flip:focus-visible .flip-badge{transform:rotate(180deg);}
+/* phones: an even two-column grid; titles live on the card's back, the ↻ badge marks each tile as tappable */
+@media (max-width:640px){
+  .gallery.rows.art-gallery .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start;}
+  .gallery.rows.art-gallery .row .ph{flex:none;width:100%;height:auto;aspect-ratio:var(--r);}
+  .art-card .fc{display:none;}
+}
+.art-card.is-out{visibility:hidden;}
+/* statement text stays in the page for screen readers; the flip card shows it */
+.art-info{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
+
+.flip-layer{position:fixed;inset:0;z-index:calc(var(--z-header) + 10);perspective:1800px;}
+.flip-backdrop{position:absolute;inset:0;background:rgba(42,33,28,.55);opacity:0;transition:opacity .45s var(--ease);}
+.flip-layer.in .flip-backdrop{opacity:1;}
+.flip-card{position:fixed;outline:none;}
+.flip-inner{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateY(180deg);}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:3px solid var(--coffee);overflow:hidden;}
+.flip-front{background:var(--coffee);}
+.flip-front img{width:100%;height:100%;object-fit:cover;display:block;}
+.flip-back{transform:rotateY(180deg);background:var(--cream);box-shadow:8px 8px 0 var(--accent);
+  display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);grid-template-rows:minmax(0,1fr) auto;gap:0 32px;padding:28px;cursor:pointer;}
+.flip-mini{grid-row:1 / 3;display:flex;align-items:center;justify-content:center;background:var(--cream-deep);padding:16px;min-height:0;}
+.flip-mini img{max-width:100%;max-height:100%;object-fit:contain;border:2px solid var(--coffee);display:block;}
+.flip-text{overflow-y:auto;overscroll-behavior:contain;cursor:auto;padding-right:4px;min-height:0;}
+.flip-kick{margin:0 0 8px;font-family:var(--f-mono);font-size:12px;line-height:16px;letter-spacing:.12em;color:var(--accent);}
+.flip-text h3{margin:0 0 6px;font-size:clamp(26px,2.6vw,36px);line-height:1.05;letter-spacing:-.04em;}
+.flip-text .meta{margin:0 0 16px;font-family:var(--f-mono);font-size:12px;line-height:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--coffee-mid);}
+.flip-text p:not(.meta):not(.flip-kick){margin:0;font-size:16px;line-height:26px;color:var(--ink-body);}
+.flip-close{justify-self:start;margin-top:16px;padding:0;border:0;background:none;cursor:pointer;font:600 14px/20px var(--f-body);color:var(--coffee);
+  text-decoration:underline;text-decoration-thickness:2px;text-decoration-color:var(--accent);text-underline-offset:6px;}
+.flip-close:hover{color:var(--accent);}
+.flip-close:focus-visible{outline:3px solid var(--accent);outline-offset:4px;}
+body.flip-open{overflow:hidden;}
+@media (max-width:720px){
+  .flip-back{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr) auto;padding:16px;gap:12px;}
+  .flip-mini{grid-row:auto;height:140px;padding:8px;}
+}

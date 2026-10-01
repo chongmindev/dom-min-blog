@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet" />
 <script>try{var f=sessionStorage.getItem("flood");if(f){sessionStorage.removeItem("flood");document.documentElement.setAttribute("data-flood","");document.documentElement.style.setProperty("--flood",f);}}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=8" />
+<link rel="stylesheet" href="styles.css?v=11" />
 <link rel="icon" href="favicon.svg" />
 <style>
   .home{
@@ -64,6 +64,7 @@
   .plist a.school{--accent:var(--school);--accent-ink:var(--school-ink);}
   .plist a.work{--accent:var(--work);}
   .plist a.brew{--accent:var(--brew);}
+  .plist a.art{--accent:var(--art);}
   .plist a:hover{background:var(--accent);color:var(--cream);}
   .plist a:hover::before{color:var(--cream);}
   .plist .mk{width:16px;height:auto;flex:none;transform:rotate(-18deg);transition:transform .3s var(--ease);}
@@ -83,7 +84,9 @@
   @media (min-width:821px){.plist{flex:1;margin-bottom:-8px;}.plist a{flex:1 1 auto;}}
   /* tall screens: the rows get taller, so the type grows with them */
   @media (min-width:821px) and (min-height:1000px){.plist .nm{font-size:28px;line-height:34px;}.plist .sub{font-size:16px;line-height:24px;}}
-  @media (min-width:821px) and (max-height:820px){.plist{margin-top:16px;}.plist a{padding:4px 12px;}.plist .nm{font-size:20px;line-height:24px;}.plist .sub{font-size:13px;line-height:17px;}}
+  @media (min-width:821px) and (max-height:820px){.plist{margin-top:16px;}.plist a{padding:3px 12px;}.plist .nm{font-size:19px;line-height:22px;}.plist .sub{font-size:12px;line-height:15px;}}
+  /* six rows on a very short screen: titles only (the hover card over the map still carries the detail) */
+  @media (min-width:821px) and (max-height:760px){.plist .sub{display:none;}.plist .nm{font-size:20px;line-height:24px;}}
   .home-map{height:calc(100dvh - 116px);border:3px solid var(--coffee);border-radius:var(--radius);overflow:hidden;background:var(--cream-deep);
     box-shadow:8px 8px 0 var(--map-shadow,var(--brick));transition:box-shadow .6s var(--ease);}
   /* while a pillar row is hovered, the map's shadow turns a darker shade of that pillar (30% espresso ink),
@@ -94,6 +97,7 @@
     .home:has(.plist a.school:hover,.plist a.school:focus-visible){--map-shadow:color-mix(in srgb,var(--school) 70%,var(--coffee));}
     .home:has(.plist a.work:hover,.plist a.work:focus-visible){--map-shadow:color-mix(in srgb,var(--work) 70%,var(--coffee));}
     .home:has(.plist a.brew:hover,.plist a.brew:focus-visible){--map-shadow:color-mix(in srgb,var(--brew) 70%,var(--coffee));}
+    .home:has(.plist a.art:hover,.plist a.art:focus-visible){--map-shadow:color-mix(in srgb,var(--art) 70%,var(--coffee));}
   }
   .home-map iframe{border:0;display:block;}
   /* hover preview: a pillar card wipes up over the map while its row is hovered */
@@ -122,6 +126,7 @@
   .spread[data-pillar="school"]{--accent:var(--school);--accent-ink:var(--school-ink);}
   .spread[data-pillar="work"]{--accent:var(--work);}
   .spread[data-pillar="brew"]{--accent:var(--brew);}
+  .spread[data-pillar="art"]{--accent:var(--art);}
   .spread:nth-child(even) .spread-fig{order:2;}
   .spread-fig{aspect-ratio:4/3;background:color-mix(in srgb,var(--accent) 14%,var(--cream));border-color:color-mix(in srgb,var(--accent) 45%,var(--cream));}
   .spread-fig:has(img){border:3px solid var(--coffee);box-shadow:8px 8px 0 var(--accent);}
@@ -181,6 +186,7 @@
     <a href="/school">School</a>
     <a href="/work">Work &amp; volunteering</a>
     <a href="/brew-logs">Brew logs</a>
+    <a href="/art">Art</a>
     <a href="/contact">Contact</a>
   </nav>
 </header>
@@ -228,6 +234,11 @@
         <a class="brew" href="/brew-logs">
           <svg class="mk" viewBox="0 0 20 26" aria-hidden="true"><ellipse class="b" cx="10" cy="13" rx="8" ry="12"/><path class="c" d="M6.4 3.6 C 11 9, 9 17, 13.6 22.4" fill="none" stroke-linecap="round"/></svg>
           <span class="txt"><span class="nm">Brew logs</span><span class="sub">250+ cups brewed and logged</span></span>
+          <span class="go" aria-hidden="true">→</span>
+        </a>
+        <a class="art" href="/art">
+          <svg class="mk" viewBox="0 0 20 26" aria-hidden="true"><ellipse class="b" cx="10" cy="13" rx="8" ry="12"/><path class="c" d="M6.4 3.6 C 11 9, 9 17, 13.6 22.4" fill="none" stroke-linecap="round"/></svg>
+          <span class="txt"><span class="nm">Art</span><span class="sub">Twenty works on coffee, labor, and climate</span></span>
           <span class="go" aria-hidden="true">→</span>
         </a>
       </nav>
@@ -307,11 +318,24 @@
         <a class="spread-go" href="/brew-logs">See brew logs <span aria-hidden="true">→</span></a>
       </div>
     </article>
+    <article class="spread" data-pillar="art">
+      <figure class="spread-fig ph"><img src="images/art/09.jpg" alt="The Cup I Love, an acrylic painting of Dom making coffee" loading="lazy" style="object-position:50% 35%"></figure>
+      <div class="spread-txt">
+        <p class="spread-kick">06 / Art</p>
+        <h2>Art</h2>
+        <p class="spread-line">Pencil, conte, acrylic, and digital work on coffee, labor, climate, and memory.</p>
+        <div class="spread-stats">
+          <div><span class="n">20</span><span class="l">works</span></div>
+          <div><span class="n">4</span><span class="l">media</span></div>
+        </div>
+        <a class="spread-go" href="/art">See the art <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
   </section>
 </main>
 <script src="reveal.js?v=2" defer></script>
 <script src="nav.js?v=3" defer></script>
 <script src="cover.js?v=2" defer></script>
-<script src="peek.js?v=2" defer></script>
+<script src="peek.js?v=3" defer></script>
 </body>
 </html>
