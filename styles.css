@@ -594,6 +594,7 @@ footer a{color:var(--coffee-mid);}
 .flip-backdrop{position:absolute;inset:0;background:rgba(42,33,28,.55);opacity:0;transition:opacity .45s var(--ease);}
 .flip-layer.in .flip-backdrop{opacity:1;}
 .flip-card{position:fixed;outline:none;}
+.flip-card:focus,.flip-card:focus-visible{outline:none;}
 .flip-inner{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateY(180deg);}
 .flip-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:3px solid var(--coffee);overflow:hidden;}
 .flip-front{background:var(--coffee);}
@@ -607,11 +608,19 @@ footer a{color:var(--coffee-mid);}
 .flip-text h3{margin:0 0 6px;font-size:clamp(26px,2.6vw,36px);line-height:1.05;letter-spacing:-.04em;}
 .flip-text .meta{margin:0 0 16px;font-family:var(--f-mono);font-size:12px;line-height:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--coffee-mid);}
 .flip-text p:not(.meta):not(.flip-kick){margin:0;font-size:16px;line-height:26px;color:var(--ink-body);}
-.flip-close{justify-self:start;margin-top:16px;padding:0;border:0;background:none;cursor:pointer;font:600 14px/20px var(--f-body);color:var(--coffee);
+.flip-close{justify-self:start;margin:0;padding:0;border:0;background:none;cursor:pointer;font:600 14px/20px var(--f-body);color:var(--coffee);
   text-decoration:underline;text-decoration-thickness:2px;text-decoration-color:var(--accent);text-underline-offset:6px;}
 .flip-close:hover{color:var(--accent);}
 .flip-close:focus-visible{outline:3px solid var(--accent);outline-offset:4px;}
 body.flip-open{overflow:hidden;}
+/* card footer: flip back on the left, previous / next on the right */
+.flip-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px;}
+.flip-nav{display:flex;gap:8px;}
+.flip-nav button{width:44px;height:44px;display:grid;place-items:center;padding:0;border:2px solid var(--coffee);background:var(--cream);color:var(--coffee);
+  font:600 20px/1 var(--f-body);cursor:pointer;transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease);}
+.flip-nav button:hover:not(:disabled){background:var(--accent);border-color:var(--accent);color:var(--cream);}
+.flip-nav button:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+.flip-nav button:disabled{opacity:.25;cursor:default;}
 @media (max-width:720px){
   .flip-back{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr) auto;padding:16px;gap:12px;}
   .flip-mini{grid-row:auto;height:140px;padding:8px;}
